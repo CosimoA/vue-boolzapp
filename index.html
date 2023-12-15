@@ -5,14 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BoolZapp</title>
 
-    <!-- Axios CDN -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
     <!-- VueJs CDN -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
     <!-- CSS Style -->
     <link rel="stylesheet" href="css/style.css">
-    <!-- FontOwesome CDN -->
-
+    <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
@@ -69,7 +66,7 @@
                                 <img :src="selectedContact.avatar" alt="utente" />
                                 <div class="info-contatto">
                                     <span class="nome-utente">{{ selectedContact.name }}</span>
-                                    <span class="messaggio-utente">Ultimo accesso : </span>
+                                    <span class="messaggio-utente">Ultimo accesso oggi alle 12:00 </span>
                                 </div>
                             </div>
                             <div class="icone-destra-chat">
@@ -81,7 +78,16 @@
         
                         <!-- MESSAGGI + DROPDOWN -->
                         <div class="chat-principale">
-                            <span class="messaggio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam corporis porro aperiam minima eius soluta doloribus, libero reprehenderit voluptate consequatur expedita doloremque nulla iusto veritatis. Eius eos eligendi voluptatem officiis.</span>
+                            <div v-if="selectedContact">
+                                <div v-for="message in selectedContact.messages" :key="message.date" class="messaggio-container">
+                                    <div :class="getMessageClass(message)">
+                                        {{ message.message }}
+                                        <div class="riquadro-orario">
+                                            <span class="data-messaggio">{{ getHourFromDate(message.date) }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
         
                         <!-- INPUT MESSAGGIO -->
@@ -96,7 +102,6 @@
         </main>
 
     </div>
-
 
     <!-- Js Script -->
     <script type="text/javascript" src="js/script.js"></script>

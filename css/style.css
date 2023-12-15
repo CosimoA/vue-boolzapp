@@ -3,6 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    color: #000;
 }
 
 .top-verde {
@@ -119,8 +120,8 @@
 }
 
 .notifiche a {
-    color: #000;
     font-size: 11px;
+    color: #919191
 }
 
 .ricerca > input {
@@ -229,6 +230,7 @@
 }
 
 .chat-principale {
+    padding: 20px 15px;
     height: calc(90vh - 130px);
     display: flex;
     flex-direction: column;
@@ -316,4 +318,46 @@ i {
 .data-messaggio {
     display: flex;
     justify-content: flex-end;
+}
+
+/* MESSAGGI */
+
+.messaggio-container {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.messaggio-container .messaggio {
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 10px;
+    position: relative; 
+}
+
+.messaggio-sent {
+    background-color: #DCF8C6;
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 10px 10px 0 10px;
+    align-self: flex-end; 
+}
+
+.messaggio-received {
+    background-color: #FFF;
+    max-width: 70%;
+    padding: 10px;
+    border-radius: 10px 10px 10px 0;
+    align-self: flex-start; 
+}
+
+.riquadro-orario {
+    align-self: flex-end;
+    margin-top: 5px; 
+}
+
+.riquadro-orario .data-messaggio {
+    font-size: 8px;
+    color: #999;
 }

@@ -155,24 +155,27 @@ createApp({
         }
     },
     methods: {
+        ottieniDatiContatti() {
+            return this.contacts.map((contatto) => ({
+                nome: contatto.name,
+                avatar: contatto.avatar,
+                ultimoMessaggio: contatto.messages.length > 0 ? contatto.messages[contatto.messages.length - 1].message : '',
+                dataUltimoMessaggio: contatto.messages.length > 0 ? contatto.messages[contatto.messages.length - 1].date : '',
+                messages: contatto.messages
+            }));
+        },
         selectContact(contact) {
-            console.log('Contatto selezionato:', contact);
             this.selectedContact = contact;
         },
-
-        ottieniDatiContatti() {
-            return this.contacts.map((contatto) => {
-                return {
-                    nome: contatto.name,
-                    avatar: contatto.avatar,
-                    ultimoMessaggio: contatto.messages.length > 0 ? contatto.messages[contatto.messages.length - 1].message : '',
-                    dataUltimoMessaggio: contatto.messages.length > 0 ? contatto.messages[contatto.messages.length - 1].date : ''
-                };
-            });
+        getMessageClass(message) {
+            return message.status === 'sent' ? 'messaggio-sent' : 'messaggio-received';
+        },
+        getHourFromDate(dateString) {
+            const date = new Date(dateString);
+            return `${date.getHours()}:${date.getMinutes()}`;
         },
     },
     mounted() {
-        // imposta il primo contatto come selezionato
         if (this.contacts.length > 0) {
             this.selectedContact = this.contacts[0];
         }
