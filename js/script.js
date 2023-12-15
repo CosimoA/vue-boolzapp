@@ -158,7 +158,18 @@ createApp({
         selectContact(contact) {
             console.log('Contatto selezionato:', contact);
             this.selectedContact = contact;
-        }
+        },
+
+        ottieniDatiContatti() {
+            return this.contacts.map((contatto) => {
+                return {
+                    nome: contatto.name,
+                    avatar: contatto.avatar,
+                    ultimoMessaggio: contatto.messages.length > 0 ? contatto.messages[contatto.messages.length - 1].message : '',
+                    dataUltimoMessaggio: contatto.messages.length > 0 ? contatto.messages[contatto.messages.length - 1].date : ''
+                };
+            });
+        },
     },
     mounted() {
         // imposta il primo contatto come selezionato

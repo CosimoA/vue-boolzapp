@@ -51,13 +51,13 @@
                             <input placeholder="Cerca" />
                         </div>
                         <ul class="lista">
-                            <li class="chat-lista" v-for="contact in contacts" :key="contact.name" @click="selectContact(contact)">
+                            <li class="chat-lista" v-for="contact in ottieniDatiContatti()" :key="contact.nome" @click="selectContact(contact)">
                                 <img :src="contact.avatar" alt="utente" />
                                 <div class="info-contatto">
-                                    <span class="nome-utente">{{ contact.name }}</span>
-                                    <span class="messaggio-utente">{{ contact.messages.length > 0 ? contact.messages[contact.messages.length - 1].message : '' }}</span>
+                                    <span class="nome-utente">{{ contact.nome }}</span>
+                                    <span class="messaggio-utente">{{ contact.ultimoMessaggio }}</span>
                                 </div>
-                                <span class="data-utente">{{ contact.messages.length > 0 ? contact.messages[contact.messages.length - 1].date : '' }}</span>
+                                <span class="data-utente">{{ contact.dataUltimoMessaggio }}</span>
                             </li>
                         </ul>
                     </div>
