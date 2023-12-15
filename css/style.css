@@ -139,6 +139,7 @@
 .lista {
     width: 100%;
     height: calc(100% - 185px);
+    overflow-y: auto;
 }
 
 .lista li {
