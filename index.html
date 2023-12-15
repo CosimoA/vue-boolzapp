@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>BoolZapp</title>
 
     <!-- Axios CDN -->
     <!-- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> -->
@@ -12,10 +12,89 @@
     <!-- CSS Style -->
     <link rel="stylesheet" href="css/style.css">
     <!-- FontOwesome CDN -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 </head>
 <body>
     <div id="app">
+
+        <nav>
+            <section class="top-verde"></section>
+        </nav>
+        <main>
+            <section class="contenitore-principale"></section>
+            <div id="root">
+                <div class="container-chat">
+        
+                    <!-- CONTATTI NELLA BARRA LATERALE -->
+                    <div class="contatto">
+                        <div class="info">
+                            <div class="info-sinistra">
+                                <img src="img/my-avatar.png" alt="" />
+                                <h5 id="utente">Don't Waste Money</h5>
+                            </div>
+                            <div class="icone-destra">
+                                <i class="fa-solid fa-circle-notch"></i>
+                                <i class="fas fa-comment-alt"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+                        <div class="notifiche">
+                            <span id="campana"><i class="far fa-bell-slash"></i></span>
+                            <span>
+                                <h5>Ricevi notifiche di nuovi messaggi</h5>
+                                <a href="">Attiva le notifiche desktop</a>
+                            </span>
+                        </div>
+                        <div class="ricerca">
+                            <i class="fas fa-search"></i>
+                            <input placeholder="Cerca" />
+                        </div>
+                        <ul class="lista">
+                            <li class="chat-lista">
+                                <img src="img/avatar_1.jpg" alt="utente" />
+                                <div class="info-contatto">
+                                    <span class="nome-utente">Nome Utente</span>
+                                    <span class="messaggio-utente">Ultimo messaggio</span>
+                                </div>
+                                <span class="data-utente">Ultima data</span>
+                            </li>
+                            <!-- Altri elementi della lista qui -->
+                        </ul>
+                    </div>
+        
+                    <!-- CHAT -->
+                    <div class="chat">
+                        <div class="info-chat">
+                            <div class="info-chat-sinistra">
+                                <img src="img/avatar_1.jpg" alt="utente" />
+                                <div class="info-contatto">
+                                    <span class="nome-utente">Nome Utente</span>
+                                    <span class="messaggio-utente">Ultimo accesso : </span>
+                                </div>
+                            </div>
+                            <div class="icone-destra-chat">
+                                <i class="fas fa-search"></i>
+                                <i class="fas fa-paperclip"></i>
+                                <i class="fas fa-ellipsis-v"></i>
+                            </div>
+                        </div>
+        
+                        <!-- MESSAGGI + DROPDOWN -->
+                        <div class="chat-principale">
+                            <span class="messaggio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam corporis porro aperiam minima eius soluta doloribus, libero reprehenderit voluptate consequatur expedita doloremque nulla iusto veritatis. Eius eos eligendi voluptatem officiis.</span>
+                        </div>
+        
+                        <!-- INPUT MESSAGGIO -->
+                        <div class="scrivi-chat">
+                            <span><i class="far fa-smile"></i></span>
+                            <input placeholder="Scrivi messaggio" />
+                            <span><i class="fas fa-microphone"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
 
     </div>
 
