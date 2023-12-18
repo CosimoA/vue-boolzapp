@@ -43,13 +43,14 @@
                                 <a href="">Attiva le notifiche desktop</a>
                             </span>
                         </div>
+                        <!-- Ricerca Contatti -->
                         <div class="ricerca">
                             <i class="fas fa-search"></i>
-                            <input placeholder="Cerca" />
+                            <input v-model="filtroLista" placeholder="Cerca" />
                         </div>
                         <ul class="lista">
                             <!-- Lista dei contatti -->
-                            <li class="chat-lista" v-for="contact in ottieniDatiContatti()" :key="contact.name" @click="selectContact(contact)">
+                            <li class="chat-lista" v-for="contact in filteredContacts" :key="contact.name" @click="selectContact(contact)">
                                 <img :src="contact.avatar" alt="utente" />
                                 <div class="info-contatto">
                                     <span class="nome-utente">{{ contact.name }}</span>

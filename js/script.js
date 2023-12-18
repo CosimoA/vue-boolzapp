@@ -153,8 +153,10 @@ createApp({
             ],
             // Contatto selezionato
             selectedContact: null,
-            // Array nuovi messaggi quando utente scrive messaggi nuovi
+            // Variabile nuovo messaggo quando utente scrive messaggi nuovi
             newMessage: "",
+            // Variabile per filtrare la lista
+            filtroLista: "",
         }
     },
     methods: {
@@ -208,6 +210,14 @@ createApp({
                     this.selectedContact.messages.push(rispostaOk);
                 }, 1000);
             }
+        },
+    },
+    computed: {
+        // Funzione per filtrare lista contatti
+        filteredContacts() {
+            return this.ottieniDatiContatti().filter(contact => {
+                return contact.nome.toLowerCase().includes(this.filtroLista.toLowerCase());
+            });
         },
     },
     mounted() {
