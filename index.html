@@ -94,7 +94,7 @@
                         <!-- INPUT MESSAGGIO -->
                         <div class="scrivi-chat">
                             <span><i class="far fa-smile"></i></span>
-                            <input placeholder="Scrivi messaggio" />
+                            <input v-model="newMessage" @keydown.enter="inviaMessaggio" placeholder="Scrivi messaggio" />
                             <span><i class="fas fa-microphone"></i></span>
                         </div>
                     </div>

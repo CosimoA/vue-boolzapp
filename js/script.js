@@ -151,10 +151,15 @@ createApp({
                     ],
                 }
             ],
+            // Contatto selezionato
             selectedContact: null,
+            // Array nuovi messaggi quando utente scrive messaggi nuovi
+            newMessage: "",
         }
     },
     methods: {
+
+        // Funzione per richiamare i dati dall'array
         ottieniDatiContatti() {
             return this.contacts.map((contatto) => ({
                 nome: contatto.name,
@@ -164,20 +169,40 @@ createApp({
                 messages: contatto.messages
             }));
         },
+
+        // Funzione per selezionare i contatti dalla lista al click
         selectContact(contact) {
             this.selectedContact = contact;
         },
+
+        // Funzione per abbinare la classe sent or received in CSS
         getMessageClass(message) {
-            return message.status === 'sent' ? 'messaggio-sent' : 'messaggio-received';
+            return message.status === "sent" ? "messaggio-sent" : "messaggio-received";
         },
+
+        // Funzione per formattare l'acquisizione della data e ricavare solo l'orario
         getHourFromDate(dateString) {
-            const date = new Date(dateString);
-            return `${date.getHours()}:${date.getMinutes()}`;
+            const [datePart, timePart] = dateString.split(" ");
+            const [hours, minutes] = timePart.split(":");
+            return `${hours}:${minutes}`;
+        },
+
+        // Funzione invia messaggio
+        inviaMessaggio() {
+            if (this.newMessage !== "") {
+                const nuovoMessaggio = {
+                    date: new Date().toLocaleString(),
+                    message: this.newMessage,
+                    status: "sent",
+                };
+                this.selectedContact.messages.push(nuovoMessaggio);
+                this.newMessage = "";
+            }
         },
     },
     mounted() {
+        // Seleziona il primo contatto al caricamento della pagina
         if (this.contacts.length > 0) {
-            // Seleziona il primo contatto al caricamento della pagina
             this.selectedContact = this.ottieniDatiContatti()[0];
         }
     }
