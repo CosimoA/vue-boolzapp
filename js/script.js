@@ -177,7 +177,8 @@ createApp({
     },
     mounted() {
         if (this.contacts.length > 0) {
-            this.selectedContact = this.contacts[0];
+            // Seleziona il primo contatto al caricamento della pagina
+            this.selectedContact = this.ottieniDatiContatti()[0];
         }
     }
 }).mount('#app');

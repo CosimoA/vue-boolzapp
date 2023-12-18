@@ -48,10 +48,11 @@
                             <input placeholder="Cerca" />
                         </div>
                         <ul class="lista">
-                            <li class="chat-lista" v-for="contact in ottieniDatiContatti()" :key="contact.nome" @click="selectContact(contact)">
+                            <!-- Lista dei contatti -->
+                            <li class="chat-lista" v-for="contact in ottieniDatiContatti()" :key="contact.name" @click="selectContact(contact)">
                                 <img :src="contact.avatar" alt="utente" />
                                 <div class="info-contatto">
-                                    <span class="nome-utente">{{ contact.nome }}</span>
+                                    <span class="nome-utente">{{ contact.name }}</span>
                                     <span class="messaggio-utente">{{ contact.ultimoMessaggio }}</span>
                                 </div>
                                 <span class="data-utente">{{ contact.dataUltimoMessaggio }}</span>
@@ -65,7 +66,7 @@
                             <div class="info-chat-sinistra">
                                 <img :src="selectedContact.avatar" alt="utente" />
                                 <div class="info-contatto">
-                                    <span class="nome-utente">{{ selectedContact.name }}</span>
+                                    <span class="nome-utente">{{ selectedContact.nome }}</span>
                                     <span class="messaggio-utente">Ultimo accesso oggi alle 12:00 </span>
                                 </div>
                             </div>
@@ -75,7 +76,7 @@
                                 <i class="fas fa-ellipsis-v"></i>
                             </div>
                         </div>
-        
+
                         <!-- MESSAGGI + DROPDOWN -->
                         <div class="chat-principale">
                             <div v-if="selectedContact">
@@ -89,7 +90,7 @@
                                 </div>
                             </div>
                         </div>
-        
+
                         <!-- INPUT MESSAGGIO -->
                         <div class="scrivi-chat">
                             <span><i class="far fa-smile"></i></span>
