@@ -197,6 +197,16 @@ createApp({
                 };
                 this.selectedContact.messages.push(nuovoMessaggio);
                 this.newMessage = "";
+
+                // Simula la risposta "ok" dopo 1 secondo
+                setTimeout(() => {
+                    const rispostaOk = {
+                        date: new Date().toLocaleString(),
+                        message: "Ok!",
+                        status: "received",
+                    };
+                    this.selectedContact.messages.push(rispostaOk);
+                }, 1000);
             }
         },
     },
