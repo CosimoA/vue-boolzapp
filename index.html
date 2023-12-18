@@ -53,7 +53,7 @@
                             <li class="chat-lista" v-for="contact in filteredContacts" :key="contact.name" @click="selectContact(contact)">
                                 <img :src="contact.avatar" alt="utente" />
                                 <div class="info-contatto">
-                                    <span class="nome-utente">{{ contact.name }}</span>
+                                    <span class="nome-utente">{{ contact.nome }}</span>
                                     <span class="messaggio-utente">{{ contact.ultimoMessaggio }}</span>
                                 </div>
                                 <span class="data-utente">{{ contact.dataUltimoMessaggio }}</span>
